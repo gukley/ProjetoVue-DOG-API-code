@@ -62,6 +62,6 @@ const toggle = () => store.toggleFavorite(props.image);
 }
 
 .favorite-button:hover { 
-  background-color: #8FAF65; 
+  background-color: #8FAF65;
 }
 </style>
