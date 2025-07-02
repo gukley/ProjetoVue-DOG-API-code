@@ -45,14 +45,14 @@ export const useDogStore = defineStore('dogStore', () => {
     try {
       const res = await axios.get(`https://dog.ceo/api/breed/${breed}/images`)
       images.value = res.data.message
-      currentPage.value = 1 // reseta paginação
+      currentPage.value = 1 
     } catch (err) {
       console.error('Erro ao carregar imagens:', err)
       images.value = []
     }
   }
 
-  // Favoritos
+  // Favoritos (adicionar ou remover dos favoritos)
   function toggleFavorite(imgUrl) { 
     if (favorites.value.includes(imgUrl)) { 
       favorites.value = favorites.value.filter(img => img !== imgUrl)
@@ -85,6 +85,7 @@ export const useDogStore = defineStore('dogStore', () => {
     }
   }
 
+  // Paginação para favoritos
   function nextFavoritePage() { 
     if (favoritePage.value < totalPagesFavorites.value) favoritePage.value++
   }
